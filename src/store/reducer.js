@@ -1,6 +1,6 @@
 const defaultState = {
-  inputValue: '123',
-  list: [1, 2]
+  inputValue: '',
+  list: []
 };
 
 // reducer 可以接收 state, 但絕對不能修改 state
@@ -14,6 +14,11 @@ export default (state = defaultState, action) => {
     const newState = JSON.parse(JSON.stringify(state));
     newState.list.push(newState.inputValue);
     newState.inputValue = '';
+    return newState;
+  }
+  if (action.type === 'delete_todo_item') {
+    const newState = JSON.parse(JSON.stringify(state));
+    newState.list.splice(action.index, 1);
     return newState;
   }
   console.log(state, action);
