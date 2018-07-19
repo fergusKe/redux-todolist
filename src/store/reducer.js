@@ -33,6 +33,5 @@ export default (state = defaultState, action) => {
     newState.list = action.data;
     return newState;
   }
-  console.log(state, action);
   return state;
 };
